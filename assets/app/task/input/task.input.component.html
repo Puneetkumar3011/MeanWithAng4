@@ -1,0 +1,39 @@
+<div>
+  <form class="form-horizontal" (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">
+      <div class="form-group" [hidden]="isIdHidden">
+          <label class="col-sm-3 control-label" for="id">Id</label>
+          <div class="col-sm-7">
+            <input id="id" type="text" class="form-control" name="id" [ngModel]="taskData?.id">
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="col-sm-3 control-label" for="description">Task Detail</label>
+          <div class="col-sm-7">
+            <input type="text" id="description" class="form-control" name="description" [ngModel]="taskData?.description" required>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="col-sm-3 control-label" for="taskStatus">Status</label>
+          <div class="col-sm-7">
+              <div class="radio">
+                  <label><input type="radio" name="taskStatus" [ngModel]="taskData?.taskStatus" value="pending">Pending &nbsp;</label>
+                  <label><input type="radio" name="taskStatus" [ngModel]="taskData?.taskStatus" value="completed">Completed &nbsp;</label>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="priority">Priority</label>
+        <div class="col-sm-7">
+          <select id="ddlPriority" class="form-control" name="priority" [ngModel]="taskData?.priority">
+            <option *ngFor="let tp of taskPriorities" value="{{tp.key}}">{{tp.value}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-4">
+          <button class="btn btn-primary" type="submit" [disabled]="!taskForm.valid">Submit</button>
+          <button class="btn btn-default" (click)="cancelEdit()" type="Cancel">Cancel</button>
+        </div>
+      </div>
+  </form>
+</div>
