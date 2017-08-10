@@ -2,17 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
-import { AlertModule, ModalModule, CarouselModule, TabsModule, DatepickerModule, ButtonsModule } from 'ngx-bootstrap';
 
 import { AppComponent } from "./app.component";
+import { TaskModule } from "./task/task.module";
+import { TaskService } from "./task/task.service";
 import { MessageComponent } from "./messages/message.component";
 import { MessageListComponent } from "./messages/message-list.component";
 import { MessageInputComponent } from "./messages/message-input.component";
 import { MessagesComponent } from "./messages/messages.component";
-import { TaskComponent } from "./task/task.component";
-import { TaskInputComponent } from "./task/input/task.input.component";
-import { TaskListComponent } from "./task/list/task.list.component";
-import { TaskService } from "./task/task.service";
 import { AuthenticationComponent } from "./auth/authentication.component";
 import { HeaderComponent } from "./header/header.component";
 import { routing } from "./app.routing";
@@ -22,7 +19,7 @@ import { SigninComponent } from "./auth/signin.component";
 import { AuthService } from "./auth/auth.service";
 import { ErrorComponent } from "./errors/error.component";
 import { ErrorService } from "./errors/error.service";
-import { CapitalizePipe } from "./directives/capitalize.pipe";
+import { SharedAppModule } from "./shared.module";
 
 @NgModule({
     declarations: [
@@ -33,14 +30,10 @@ import { CapitalizePipe } from "./directives/capitalize.pipe";
         MessagesComponent,
         AuthenticationComponent,
         HeaderComponent,
-        TaskComponent,
-        TaskInputComponent,
-        TaskListComponent,
         LogoutComponent,
         SignupComponent,
         SigninComponent,
-        ErrorComponent,
-        CapitalizePipe
+        ErrorComponent
     ],
     imports: [
         BrowserModule,
@@ -48,12 +41,8 @@ import { CapitalizePipe } from "./directives/capitalize.pipe";
         routing,
         ReactiveFormsModule,
         HttpModule,
-        AlertModule.forRoot(),
-        ModalModule.forRoot(),
-        CarouselModule.forRoot(),
-        TabsModule.forRoot(),
-        DatepickerModule.forRoot(),
-        ButtonsModule.forRoot()
+        SharedAppModule,
+        TaskModule
     ],
     providers: [AuthService, ErrorService, TaskService],
     bootstrap: [AppComponent]
