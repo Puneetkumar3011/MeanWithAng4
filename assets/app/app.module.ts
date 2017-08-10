@@ -5,6 +5,7 @@ import { HttpModule } from "@angular/http";
 import { AppComponent } from "./app.component";
 import { AuthModule } from "./auth/auth.module";
 import { TaskModule } from "./task/task.module";
+import { MessageModule } from "./messages/message.module";
 import { TaskService } from "./task/task.service";
 import { HeaderComponent } from "./header/header.component";
 import { routing } from "./app.routing";
@@ -25,7 +26,8 @@ import { SharedAppModule } from "./shared.module";
         HttpModule,
         AuthModule,
         SharedAppModule,
-        TaskModule
+        TaskModule,
+        MessageModule
     ],
     providers: [AuthService, ErrorService, TaskService],
     bootstrap: [AppComponent]
