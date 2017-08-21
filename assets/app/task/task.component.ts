@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { TaskModel } from './task.model';
 import { TaskService } from './task.service';
-import { AuthService } from "../auth/auth.service"
+import { AuthService } from "../auth/auth.service";
 
 @Component({
   selector: 'app-task',

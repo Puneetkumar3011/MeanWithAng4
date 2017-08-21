@@ -1,3 +1,5 @@
+import { TaskPrioroty } from "../app.enums";
+
 export class TaskModel{
         constructor(
             public id: string, 
@@ -5,6 +7,6 @@ export class TaskModel{
             public taskStatus: string,
             public createdOn?: string,
             public user?: string,
-            public priority?: string){
+            public priority?: TaskPrioroty){
     }
 }

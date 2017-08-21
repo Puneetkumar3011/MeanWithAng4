@@ -1,8 +1,11 @@
 import { Routes, RouterModule } from "@angular/router";
 
+import { HomeComponent } from "./home/home.component";
 
 const APP_ROUTES: Routes = [
-    { path: '', redirectTo: '/tasks', pathMatch: 'full' }
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent },
+    { path: 'tasks', loadChildren: "./task/task.module#TaskModule" }
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);

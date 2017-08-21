@@ -4,32 +4,32 @@ import { HttpModule } from "@angular/http";
 
 import { AppComponent } from "./app.component";
 import { AuthModule } from "./auth/auth.module";
-import { TaskModule } from "./task/task.module";
 import { MessageModule } from "./messages/message.module";
-import { TaskService } from "./task/task.service";
-import { HeaderComponent } from "./header/header.component";
-import { routing } from "./app.routing";
-import { AuthService } from "./auth/auth.service";
-import { ErrorComponent } from "./errors/error.component";
-import { ErrorService } from "./errors/error.service";
 import { SharedAppModule } from "./shared.module";
+import { routing } from "./app.routing";
+import { HeaderComponent } from "./header/header.component";
+import { ErrorComponent } from "./errors/error.component";
+import { AuthService } from "./auth/auth.service";
+import { ErrorService } from "./errors/error.service";
+
+import { HomeComponent } from "./home/home.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
-        ErrorComponent
+        ErrorComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
         routing,
         HttpModule,
         AuthModule,
-        SharedAppModule,
-        TaskModule,
-        MessageModule
+        MessageModule,
+        SharedAppModule
     ],
-    providers: [AuthService, ErrorService, TaskService],
+    providers: [AuthService, ErrorService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

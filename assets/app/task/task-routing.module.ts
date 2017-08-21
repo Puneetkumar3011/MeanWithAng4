@@ -7,7 +7,7 @@ import { TaskListComponent } from './list/task.list.component';
 
 
 const APP_TASK_ROUTES: Routes = [
-    { path: 'tasks', component: TaskComponent, children: [
+    { path: '', component: TaskComponent, children: [
     { path: '', component: TaskListComponent },
     { path: 'list', component: TaskListComponent },
     { path: 'input', component: TaskInputComponent },

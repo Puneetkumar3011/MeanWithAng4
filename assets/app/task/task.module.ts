@@ -9,6 +9,8 @@ import { TaskListComponent } from "./list/task.list.component";
 import { TaskRoutingModule } from "./task-routing.module";
 import { SharedAppModule } from "../shared.module";
 
+import { TaskService } from "./task.service";
+
 @NgModule({
     declarations: [
         TaskComponent,
@@ -26,6 +28,7 @@ import { SharedAppModule } from "../shared.module";
         TabsModule.forRoot(),
         DatepickerModule.forRoot(),
         ButtonsModule.forRoot()
-    ]
+    ],
+    providers: [TaskService]
 })
 export class TaskModule {}
