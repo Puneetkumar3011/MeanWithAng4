@@ -4,7 +4,7 @@ import 'rxjs/Rx';
 import { Observable } from "rxjs";
 
 import { Message } from "./message.model";
-import { ErrorService } from "../errors/error.service";
+import { LogService } from "../core/errors/error.log.service";
 import { getServiceBaseUrl } from "../app.constants";
 
 @Injectable()
@@ -13,7 +13,7 @@ export class MessageService {
     private messages: Message[] = [];
     messageIsEdit = new EventEmitter<Message>();
 
-    constructor(private http: Http, private errorService: ErrorService) {
+    constructor(private http: Http, private logService: LogService) {
     }
 
     addMessage(message: Message) {
@@ -34,7 +34,7 @@ export class MessageService {
                 return message;
             })
             .catch((error: Response) => {
-                this.errorService.handleError(error.json());
+                this.logService.logError(error.json());
                 return Observable.throw(error.json());
             });
     }
@@ -56,7 +56,7 @@ export class MessageService {
                 return transformedMessages;
             })
             .catch((error: Response) => {
-                this.errorService.handleError(error.json());
+                this.logService.logError(error.json());
                 return Observable.throw(error.json());
             });
     }
@@ -74,7 +74,7 @@ export class MessageService {
         return this.http.patch(`${this.baseUrl}/message/` + message.messageId + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
-                this.errorService.handleError(error.json());
+                this.logService.logError(error.json());
                 return Observable.throw(error.json());
             });
     }
@@ -87,7 +87,7 @@ export class MessageService {
         return this.http.delete(`${this.baseUrl}/message/` + message.messageId + token)
             .map((response: Response) => response.json())
             .catch((error: Response) => {
-                this.errorService.handleError(error.json());
+                this.logService.logError(error.json());
                 return Observable.throw(error.json());
             });
     }

@@ -1,11 +1,14 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import { AlertModule, ModalModule, CarouselModule, TabsModule, DatepickerModule, ButtonsModule } from 'ngx-bootstrap';
-import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule } from "@angular/router";
 
-import { HomeComponent } from "../home/home.component";
-import { HeaderComponent } from "../header/header.component";
-import { ErrorComponent } from "../errors/error.component";
+import { HomeComponent } from "./home/home.component";
+import { HeaderComponent } from "./header/header.component";
+import { ErrorComponent } from "./errors/error.component";
+
+import { AuthService } from "../auth/auth.service";
+import { LogService } from "../core/errors/error.log.service";
+import { GlobalErrorHandler } from "../core/errors/global_error_handller";
 
 @NgModule({
     declarations: [
@@ -14,14 +17,21 @@ import { ErrorComponent } from "../errors/error.component";
         ErrorComponent
     ],
     imports: [
-        BrowserModule,
         CommonModule,
-        AlertModule.forRoot(),
-        ModalModule.forRoot(),
-        CarouselModule.forRoot(),
-        TabsModule.forRoot(),
-        DatepickerModule.forRoot(),
-        ButtonsModule.forRoot()
+        RouterModule
+    ],
+    exports: [
+        HeaderComponent,
+        ErrorComponent,
+        ErrorComponent
+    ],
+    providers: [
+        AuthService,
+        LogService,
+        {
+        provide: ErrorHandler, 
+        useClass: GlobalErrorHandler
+        }
     ]
 })
 export class CoreModule {}

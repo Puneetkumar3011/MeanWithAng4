@@ -3,33 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from "@angular/http";
 
 import { AppComponent } from "./app.component";
+import { CoreModule } from "./core/core.module";
 import { AuthModule } from "./auth/auth.module";
 import { MessageModule } from "./messages/message.module";
 import { SharedAppModule } from "./shared.module";
 import { routing } from "./app.routing";
-import { HeaderComponent } from "./header/header.component";
-import { ErrorComponent } from "./errors/error.component";
-import { AuthService } from "./auth/auth.service";
-import { ErrorService } from "./errors/error.service";
-
-import { HomeComponent } from "./home/home.component";
 
 @NgModule({
     declarations: [
-        AppComponent,
-        HeaderComponent,
-        ErrorComponent,
-        HomeComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
-        routing,
         HttpModule,
+        routing,
+        CoreModule,
         AuthModule,
         MessageModule,
         SharedAppModule
     ],
-    providers: [AuthService, ErrorService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

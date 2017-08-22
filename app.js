@@ -10,6 +10,7 @@ var appRoutes = require('./routes/app');
 var messageRoutes = require('./routes/messages');
 var taskRoutes = require('./routes/task');
 var userRoutes = require('./routes/user');
+var errorRoutes = require('./routes/error');
 
 var app = express();
 // Prod setting
@@ -40,6 +41,7 @@ app.use(function (req, res, next) {
 app.use('/task', taskRoutes);
 app.use('/message', messageRoutes);
 app.use('/user', userRoutes);
+app.use('/error', errorRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler

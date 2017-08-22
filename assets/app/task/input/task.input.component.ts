@@ -67,7 +67,7 @@ export class TaskInputComponent implements OnInit, OnDestroy{
     }
 
     addNewTask(task: TaskModel){
-      //this.throwErrorTest();
+      this.throwErrorTest();
       this.taskService.addTask(task).subscribe(
         (result) => {
           if(result.ok){
