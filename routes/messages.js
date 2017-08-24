@@ -40,7 +40,7 @@ router.post('/', function (req, res, next) {
     User.findById(decoded.user._id, function (err, user) {
         if (err) {
             return res.status(500).json({
-                title: 'An error occurred',
+                title: 'An error occurred; User not found',
                 error: err
             });
         }
@@ -51,14 +51,12 @@ router.post('/', function (req, res, next) {
         message.save(function (err, result) {
             if (err) {
                 return res.status(500).json({
-                    title: 'An error occurred',
+                    title: 'An error occurred while creating message.',
                     error: err
                 });
             }
-            user.messages.push(result);
-            user.save();
             res.status(201).json({
-                message: 'Saved message',
+                message: 'Message Created.',
                 obj: result
             });
         });

@@ -9,6 +9,7 @@
                 <ul class="nav nav-pills">
                     <li routerLinkActive="active"><a [routerLink]="['home']">Home</a></li>
                     <li routerLinkActive="active"><a [routerLink]="['/tasks']">Task</a></li>
+                    <li routerLinkActive="active"><a [routerLink]="['/messages']">Message</a></li>
                     <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['signup']">Register</a></li>
                     <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['signin']">Login</a></li>
                     <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['logout']">Logout</a></li>

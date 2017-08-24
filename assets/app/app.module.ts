@@ -5,7 +5,7 @@ import { HttpModule } from "@angular/http";
 import { AppComponent } from "./app.component";
 import { CoreModule } from "./core/core.module";
 import { AuthModule } from "./auth/auth.module";
-import { MessageModule } from "./messages/message.module";
+//import { MessageModule } from "./messages/message.module";
 import { SharedAppModule } from "./shared.module";
 import { routing } from "./app.routing";
 
@@ -19,7 +19,7 @@ import { routing } from "./app.routing";
         routing,
         CoreModule,
         AuthModule,
-        MessageModule,
+        //MessageModule,
         SharedAppModule
     ],
     bootstrap: [AppComponent]

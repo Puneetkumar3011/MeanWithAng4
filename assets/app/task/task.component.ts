@@ -18,7 +18,7 @@ export class TaskComponent implements OnInit {
 
   ngOnInit() {
     if(!this.authService.isLoggedIn()){
-      this.router.navigate(['signup']);
+      this.router.navigate(['home']);
     }
   }
 

@@ -1,5 +1,7 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
+import { AuthService } from "../auth/auth.service";
 import { Message } from "./message.model";
 import { MessageService } from "./message.service";
 
@@ -21,10 +23,17 @@ import { MessageService } from "./message.service";
         }
     `]
 })
-export class MessageComponent {
+export class MessageComponent implements OnInit{
     @Input() message: Message;
 
-    constructor(private messageService: MessageService) {}
+    constructor(private messageService: MessageService, private authService : AuthService,
+    private router: Router) {}
+
+    ngOnInit() {
+        if(!this.authService.isLoggedIn()){
+        this.router.navigate(['home']);
+        }
+    }
 
     onEdit() {
         this.messageService.editMessage(this.message);

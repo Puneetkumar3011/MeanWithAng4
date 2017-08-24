@@ -7,7 +7,8 @@ const APP_ROUTES: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'error', component: ErrorComponent },
-    { path: 'tasks', loadChildren: "./task/task.module#TaskModule" }
+    { path: 'tasks', loadChildren: "./task/task.module#TaskModule" },
+    { path: 'messages', loadChildren: "./messages/message.module#MessageModule" }
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES, {preloadingStrategy: PreloadAllModules});
